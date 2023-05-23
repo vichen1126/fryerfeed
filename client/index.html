@@ -1,0 +1,124 @@
+<!-- #E76F51
+#F4A261
+#E9C46A
+#FFF8E6
+#8D6E63 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> FryerFeed </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+
+    <script type="text/javascript" src="eventListenersFeed.js" type="module" defer></script>
+
+    <style>
+      body {
+        background-color: #FFF8E6;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: 'Jost', sans-serif;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center mx-auto" style="border: 2px solid black; padding: 20px;">
+        <!-- <div class="row align-items-center justify-content-between"> 
+          <img src="https://assets.bonappetit.com/photos/62c498e52d4aedec046332f7/1:1/w_4064,h_4064,c_limit/20210729%201021%20Meals%20We%20Are%20Traveling%20For7177.jpg" class="rounded img-fluid" style="height: 140px; width: 140px;" alt="air-fry1"> -->
+        <h1 style="color: red; font-family: 'Pacifico', sans-serif;"> FryerFeed </h1>
+          <!-- <img src="https://www.tasteofhome.com/wp-content/uploads/2018/05/shutterstock_743484397.jpg" class="rounded img-fluid" style="height: 140px; width: 140px;" alt="air-fry2">
+        </div> -->
+        <br>
+        <p> <em> Air Fryer Recipe Sharing Platform! </em> </p>
+        <a href="newpost.html"><i class="bi bi-patch-plus" style="font-size: 20px;"></i> Post a recipe! </a>
+        <!-- <br>
+        <br>
+        <a href="#" class="btn btn-primary" id="clearFeed"> FOR TEST PURPOSES: Clear Feed </a> -->
+      </div>
+    </div>
+    <br>
+    <!-- this is what a post should look like, will not be part of final product -->
+    <div class="container" id="postContainer">
+      <!-- <div class="card">
+        <div class="col-sm-4">
+          <br>
+          <img src="https://media.istockphoto.com/id/643362510/photo/partially-sliced-grilled-chicken-breast-with-black-pepper.jpg?s=1024x1024&w=is&k=20&c=bdaq-nzgfjxtX8wENOCG1S80A-nk7mMd6G3NWZPrv98=" class="card-img-top" class="img-fluid" height=auto alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> Chicken Breast </h5>
+          <p class="card-text">
+            <p> Posted By: Victor C </p>
+            <p> Ingredients: </p>
+            <ul>
+              <li> 5-7 Oz Chicken Breast </li>
+              <li> 2 Tbsp Salt </li>
+              <li> 2 Tbsp Olive Oil </li>
+            </ul>
+            <p> Time (in minutes): 10 </p>
+            <p> Temp (in degrees Fahrenheit): 400 </p>
+            <p> Flip?: Yes </p>
+            <p> Flip time (in minutes): 5 </p>
+            <p> Vegan/Halal?: Neither </p>
+            <p> Additional Instructions: enjoy while hot </p>
+          </p>
+          <a href="#" class="btn btn-primary"> Like </a>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="col-sm-4">
+          <br>
+          <img src="https://res.cloudinary.com/hksqkdlah/image/upload/ar_1:1,c_fill,dpr_2.0,f_auto,fl_lossy.progressive.strip_profile,g_faces:auto,q_auto:low,w_344/SFS_Roasted-Asparagus-9_f9hxy3" class="card-img-top" class="img-fluid" height=auto alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> Roasted Asparagus </h5>
+          <p class="card-text">
+            <p> Posted By: Jishan A </p>
+            <p> Ingredients: </p>
+            <ul>
+              <li> 1 Lb Asparagus </li>
+              <li> 2 Tsp Extra-virgin Olive Oil </li>
+              <li> 1 Tsp Salt </li>
+              <li> 1 Squeezed Lemon Wedge </li>
+            </ul>
+            <p> Time (in minutes): 7-8 </p>
+            <p> Temp (in degrees Fahrenheit): 400 </p>
+            <p> Flip?: No </p>
+            <p> Vegan/Halal?: Both </p>
+            <p> Additional Instructions: Let rest for 3 minutes </p>
+          </p>
+          <a href="#" class="btn btn-primary"> Like </a>
+          <div class="card-body">
+          <h5 class="card-title"> Chicken Nuggets </h5>
+          <p class="card-text">
+            <p> Posted By: Mac O </p>
+            <p> Ingredients: </p>
+            <ul>
+              <li> Chicken Breasts </li>
+              <li> Salt </li>
+              <li> Breading </li>
+              <li> Eggs </li>
+            </ul>
+            <p> Time (in minutes): 10 </p>
+            <p> Temp (in degrees Fahrenheit): 400 </p>
+            <p> Flip?: Yes </p>
+            <p> Vegan/Halal?:  </p>
+            <p> Additional Instructions: Let rest for 2 minutes, Eat while crispy </p>
+          </p>
+          <a href="#" class="btn btn-primary"> Like </a>
+        </div>
+      </div> -->
+    </div>
+  </body>
+</html>

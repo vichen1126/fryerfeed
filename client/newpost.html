@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> FryerFeed - Post a Recipe </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script src="eventListenersNewpost.js" type="module" defer></script>
+
+    <style>
+      body {
+        background-color: #FFF8E6;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: 'Jost', sans-serif;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center mx-auto" style="border: 2px solid black; padding: 20px;">
+        <!-- <div class="row align-items-center justify-content-between">
+          <img src="https://assets.bonappetit.com/photos/62c498e52d4aedec046332f7/1:1/w_4064,h_4064,c_limit/20210729%201021%20Meals%20We%20Are%20Traveling%20For7177.jpg" class="rounded img-fluid" style="height: 140px; width: 140px;" alt="air-fry1"> -->
+        <h1 style="color: red; font-family: 'Pacifico', sans-serif;"> FryerFeed </h1>
+        <br>
+          <!-- <img src="https://www.tasteofhome.com/wp-content/uploads/2018/05/shutterstock_743484397.jpg" class="rounded img-fluid" style="height: 140px; width: 140px;" alt="air-fry2">
+        </div> -->
+        <p> <em> Air Fryer Recipe Sharing Platform! </em> </p>
+        <a href="index.html"><i class="bi bi-arrow-bar-left" style="font-size: 18px;"></i> Back to Feed </a> 
+      </div>
+    </div>
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <h2 class="text-center"> Recipe Details </h2>
+          <form id="postForm">
+            <div class="form-group">
+              <label for="recipeName"> Recipe Name: </label>
+              <input type="text" class="form-control" id="recipeName" placeholder="Enter name of recipe">
+            </div>
+            <div class="form-group">
+              <label for="image"> Image URL: </label>
+              <input type="text" class="form-control" id="image" placeholder="Enter image URL for the image of your post">
+            </div>
+            <div class="form-group">
+              <label for="author"> Author/Poster: </label>
+              <input type="text" class="form-control" id="author" placeholder="Your name here">
+            </div>
+            <div class="form-group">
+              <label for="ingredients"> Ingredients & Amounts: </label>
+              <textarea class="form-control" id="ingredients" rows="5" placeholder="Enter ingredients and amounts, separated by commas"></textarea>
+              <small class="form-text text-muted"> Please enter each ingredient and amount as a separate item and separate each item with a comma. Ex: "5-7 oz chicken breast, 2 tbsp salt, 2 tbsp olive oil" </small>
+            </div>
+            <div class="form-group">
+              <label for="time"> Time (Minutes): </label>
+              <textarea class="form-control" id="time" rows="1" placeholder="Enter cook time in minutes"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="temp"> Temp (Degrees Fahrenheit): </label>
+              <textarea class="form-control" id="temp" rows="1" placeholder="Enter cook temperature in degrees Fahrenheit"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="flip"> Flip? </label>
+              <select class="form-control" id="flip" onchange="toggleFlipTime()">
+                <option value="select"> SELECT FROM DROP-DOWN MENU </option>
+                <option value="yes"> Yes </option>
+                <option value="no"> No </option>
+              </select>
+            </div>
+
+            <div class="form-group" id="flipInput" style="display: none;">
+              <label for="flipTime"> Flip Time (in minutes) </label>
+              <input type="number" class="form-control" id="flipTime" placeholder="What time do you flip at? (in minutes)">
+            </div>
+
+            <script>
+              function toggleFlipTime() {
+                let flip = document.getElementById("flip");
+                let flipInput = document.getElementById("flipInput");
+                if (flip.value == "yes") {
+                  flipInput.style.display = "block";
+                } else {
+                  flipInput.style.display = "none";
+                }
+              }
+            </script>
+
+            <!-- <div class="form-group">
+              <label for="veganHalal"> Vegan/Halal? </label>
+              <select class="form-control" id="veganHalal">
+                <option value="select"> SELECT FROM DROP-DOWN </option>
+                <option value="vegan"> Vegan </option>
+                <option value="halal"> Halal </option>
+                <option value="both"> Both </option>
+                <option value="neither"> Neither </option>
+              </select>
+            </div> -->
+            <div class = "form-group">
+              <label> Dietary Compliance: </label>
+              <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Kosher">
+                  <label class="form-check-label">Kosher</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Halal">
+                  <label class="form-check-label">Halal</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Vegetarian">
+                  <label class="form-check-label">Vegetarian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Vegan">
+                  <label class="form-check-label">Vegan</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Pescatarian">
+                  <label class="form-check-label">Pescatarian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Keto">
+                  <label class="form-check-label">Keto</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Gluten Free">
+                  <label class="form-check-label">Gluten Free</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Nut Free">
+                  <label class="form-check-label">Nut Free</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Dairy Free">
+                  <label class="form-check-label">Dairy Free</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="dietOption" id="Low Sodium">
+                  <label class="form-check-label">Low Sodium</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="additionalInstructions"> Additional Instructions: </label>
+              <textarea class="form-control" id="additionalInstructions" rows="4" placeholder="Enter additional instructions here"></textarea>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="postButton"> Post my Recipe! </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
