@@ -10,8 +10,8 @@ Innovative Idea: The idea for FryerFeed is inspired by the ever-growing populari
 
 Data:
 - Ingredients: A list on ingredients necessary for each recipe post and the amounts for each ingredient 
-- Cook Time: The amount of time the recipe should be cooked for in the air fryer
-- Temperature: The temperature the recipe should be cooked at
+- Cook Time: The amount of time the recipe should be cooked for in the air fryer (minutes)
+- Temperature: The temperature the recipe should be cooked at (degrees farenheit)
 - Flip: Whether the recipe requires you to flip during cook, and if yes, at what amount of time
 - Dietary Compliance: Whether the recipe is Kosher, Halal, Vegetarian, etc.
 - Like count: An integer representing how users view the quality of the recipe (like: +1)
@@ -19,5 +19,6 @@ Data:
 Functionality: 
 - A feed for users to view new recipes posted to the app
 - A seperate page containing a form users can fill out to make a new post
+- Pages for account login and registration
 
 [MIT License](https://opensource.org/licenses/MIT)
