@@ -13,7 +13,7 @@ Data:
 - Cook Time: The amount of time the recipe should be cooked for in the air fryer
 - Temperature: The temperature the recipe should be cooked at
 - Flip: Whether the recipe requires you to flip during cook, and if yes, at what amount of time
-- Vegan / Halal: Whether the recipe is Vegan, Halal, neither, or 
+- Dietary Compliance: Whether the recipe is Kosher, Halal, Vegetarian, etc.
 - Like count: An integer representing how users view the quality of the recipe (like: +1)
 
 Functionality: 
